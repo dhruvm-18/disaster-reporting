@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Statistics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 align="center">Disaster Statistics</h1>
+            <a href="index.php" class="btn-primary">Back to Home</a>
+        </div>
+    </header>
+    
+
+    <div class="container">
+        <section class="stats-section">
+            <h2>Real-time Data</h2>
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <label for="disasterType">Filter by Disaster Type:</label>
+                <select id="disasterType" onchange="filterReports()">
+                    <option value="All">All</option>
+                    <option value="Flood">Flood</option>
+                    <option value="Earthquake">Earthquake</option>
+                    <option value="Wildfire">Wildfire</option>
+                    <option value="Hurricane">Hurricane</option>
+                    <option value="Landslide">Landslide</option>
+                </select>
+
+                <label for="severityLevel">Filter by Severity Level:</label>
+                <select id="severityLevel" onchange="filterReports()">
+                    <option value="All">All</option>
+                    <option value="1">1 (Low)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (High)</option>
+                </select>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Dummy data for last month's disaster reports
+        const disasterData = {
+            types: ['Flood', 'Earthquake', 'Wildfire', 'Hurricane', 'Landslide'],
+            counts: [12, 8, 15, 5, 3],
+            severity: [3, 2, 5, 1, 4] // Severity levels (1-5)
+        };
+
+        // Bar Chart: Number of Reports by Disaster Type
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: disasterData.types,
+                datasets: [{
+                    label: 'Number of Reports',
+                    data: disasterData.counts,
+                    backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1'],
+                    borderColor: ['#0056b3', '#1e7e34', '#d39e00', '#c82333', '#5a32a3'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Line Chart: Severity Levels by Disaster Type
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: disasterData.types,
+                datasets: [{
+                    label: 'Severity Level',
+                    data: disasterData.severity,
+                    backgroundColor: '#ffc107',
+                    borderColor: '#ffc107',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5
+                    }
+                }
+            }
+        });
+
+        // Filter Reports based on selected type and severity
+        function filterReports() {
+            const selectedType = document.getElementById('disasterType').value;
+            const selectedSeverity = document.getElementById('severityLevel').value;
+
+            // Filter data
+            const filteredTypes = [];
+            const filteredCounts = [];
+            const filteredSeverity = [];
+
+            disasterData.types.forEach((type, index) => {
+                const count = disasterData.counts[index];
+                const severity = disasterData.severity[index];
+
+                // Apply filters
+                if ((selectedType === 'All' || selectedType === type) &&
+                    (selectedSeverity === 'All' || selectedSeverity == severity)) {
+                    filteredTypes.push(type);
+                    filteredCounts.push(count);
+                    filteredSeverity.push(severity);
+                }
+            });
+
+            // Update Charts with filtered data
+            updateChart(barChart, filteredTypes, filteredCounts);
+            updateChart(lineChart, filteredTypes, filteredSeverity);
+        }
+
+        // Function to update chart data
+        function updateChart(chart, labels, data) {
+            chart.data.labels = labels;
+            chart.data.datasets[0].data = data;
+            chart.update();
+        }
+    </script>
+</body>
+</html>

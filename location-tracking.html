@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Tracking & Map Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Location Tracking & Map Integration</h1>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+    </header>
+
+    <div class="container">
+        <section class="map-section">
+            <h2>Your Location</h2>
+            <div id="map" style="height: 400px; background: #eee;">Map Placeholder</div>
+            <button onclick="getLocation()">Use My Location</button>
+            <input type="text" id="manual-location" placeholder="Enter location manually">
+            <button onclick="submitLocation()">Submit Location</button>
+        </section>
+    </div>
+
+    <script>
+        function getLocation() {
+            alert('GPS auto-detection feature not implemented.');
+        }
+        
+        function submitLocation() {
+            alert('Location submitted: ' + document.getElementById('manual-location').value);
+        }
+    </script>
+</body>
+</html>

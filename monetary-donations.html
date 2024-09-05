@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetary Donations - Donation Advisory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #007BFF;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    ul li {
+      margin-bottom: 0.5em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    label {
+      margin: 0.5em 0;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select,
+    textarea {
+      padding: 0.75em;
+      margin: 0.5em 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1em;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Monetary Donations</h2>
+    <p>Monetary donations allow us to provide flexible and immediate aid where it's needed most. Here's how you can contribute:</p>
+    <ul>
+      <li>Donate through our secure online portal</li>
+      <li>Send a check to our mailing address</li>
+      <li>Organize a fundraising event to support our efforts</li>
+    </ul>
+    <p>Your financial support helps us purchase essential supplies and provide assistance to those in need. Please fill out the form below to make a donation:</p>
+    <form action="submit-donation.html" method="post">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="amount">Donation Amount:</label>
+      <input type="number" id="amount" name="amount" step="0.01" required>
+  
+      <label for="payment-mode">Payment Mode:</label>
+      <select id="payment-mode" name="payment-mode" required>
+        <option value="">Select payment mode</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank-transfer">Bank Transfer</option>
+        <option value="check">Check</option>
+      </select>
+  
+      <label for="comments">Additional Comments (Optional):</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+  
+      <button type="submit">Donate Now</button>
+    </form>
+  </div>
+</body>
+</html>

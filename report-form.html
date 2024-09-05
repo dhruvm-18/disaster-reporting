@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Form</title>
+    <link rel="stylesheet" href="disaster.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Report a Disaster</h1>
+            <a href="index.html" class="btn-primary">Back to Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="form-section">
+            <form id="report-form">
+                <div class="form-group">
+                    <label for="disaster-type">Disaster Type:</label>
+                    <select id="disaster-type" name="disaster-type" required>
+                        <option value="" disabled selected>Select a disaster type</option>
+                        <option value="earthquake">Earthquake</option>
+                        <option value="flood">Flood</option>
+                        <option value="wildfire">Wildfire</option>
+                        <option value="hurricane">Hurricane</option>
+                        <option value="tornado">Tornado</option>
+                        <option value="storm">Storm</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="severity">Severity Level:</label>
+                    <select id="severity" name="severity" required>
+                        <option value="" disabled selected>Select severity level</option>
+                        <option value="minor">Minor</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="severe">Severe</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="5" placeholder="Provide a detailed description of the disaster" required></textarea>
+                </div>
+                
+                <div class="form-group location-group">
+                    <label for="location">Location:</label>
+                    <div class="location-wrapper">
+                        <input type="text" id="location" name="location" placeholder="Enter location" required>
+                        <button type="button" id="get-location" class="location-icon">
+                            📍
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Submit Report</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('get-location').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        });
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const locationInput = document.getElementById('location');
+
+            const reverseGeocodeUrl = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&addressdetails=1`;
+
+            fetch(reverseGeocodeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.address) {
+                        const address = data.display_name;
+                        locationInput.value = address;
+                    } else {
+                        alert('Unable to retrieve address from coordinates.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while fetching the address.');
+                });
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert('User denied the request for Geolocation.');
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert('Location information is unavailable.');
+                    break;
+                case error.TIMEOUT:
+                    alert('The request to get user location timed out.');
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert('An unknown error occurred.');
+                    break;
+            }
+        }
+
+        document.getElementById('report-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            this.reset();
+
+            alert('We will provide services shortly!');
+        });
+    </script>
+</body>
+</html>

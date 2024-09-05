@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Reporting Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Disaster Reporting Tool</h1>
+                <p>Manage and report disasters efficiently with ease.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="features">
+            <h2>Our Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-image-wrapper">
+                        <img src="alert.jpg" alt="Disaster Alerts Page" class="feature-icon">
+                    </div>
+                    <h3>Disaster Alerts Page</h3>
+                    <p>View current disaster warnings and receive push notifications.</p>
+                    <a href="disaster-alerts.html" class="btn-secondary">Know More</a>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-image-wrapper">
+                        <img src="error.png" alt="Report a Disaster" class="feature-icon">
+                    </div>
+                    <h3>Report a Disaster</h3>
+                    <p>Provide detailed information about disasters and help us respond faster.</p>
+                    <a href="report-form.html" class="btn-secondary">Go to Report Form</a>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-image-wrapper">
+                        <img src="stats.png" alt="Disaster Statistics" class="feature-icon">
+                    </div>
+                    <h3>Disaster Statistics</h3>
+                    <p>Visualize real-time disaster data with graphs and heat maps.</p>
+                    <a href="disaster-stats.html" class="btn-secondary">Know More</a>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-image-wrapper">
+                        <img src="relief.png" alt="Relief Fund" class="feature-icon">
+                    </div>
+                    <h3>Relief Fund</h3>
+                    <p>Learn about ongoing relief efforts and how you can contribute to the disaster response.</p>
+                    <a href="reliefefforts.html" class="btn-secondary">Know More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <h2>Report a Disaster</h2>
+            <p>Please provide detailed information about the disaster in your area.</p>
+            <a href="report-form.html" class="btn-primary">Go to Report Form</a>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Disaster Reporting Tool. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:support@disasterreportingtool.com">support@disasterreportingtool.com</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

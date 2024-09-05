@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation Advisory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    h2 {
+      color: #007BFF; /* Blue color for the heading */
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 1em;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    p, ul {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5em;
+      color: #333; /* Darker color for the list items */
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(0,123,255,0.1) 20%, rgba(0,123,255,0) 60%); /* Blue gradient background */
+      transform: translate(-50%, -50%);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      from { transform: translate(-50%, -50%) translateY(0); }
+      to { transform: translate(-50%, -50%) translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Donation Advisory</h2>
+    <p>Your generous contributions are crucial in helping those in need. Here’s how you can make a difference:</p>
+    <ul>
+      <li>Donate through our secure online portal</li>
+      <li>Send a check to our mailing address</li>
+      <li>Organize a fundraising event to support our efforts</li>
+    </ul>
+    <p>Every rupee you contribute goes directly to providing essential supplies and support. Thank you for your generosity and commitment to making a positive impact.</p>
+  </div>
+
+</body>
+</html>

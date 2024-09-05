@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Supplies - Donation Advisory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #007bff; /* Blue color */
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    ul li {
+      margin-bottom: 0.5em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    label {
+      margin-top: 1em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea, select {
+      padding: 0.75em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #007bff; /* Blue color */
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    button {
+      margin-top: 1em;
+      padding: 0.75em;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff; /* Blue color */
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Darker blue for hover */
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Medical Supplies Donations</h2>
+    <p>Medical supplies are crucial for treating the injured and sick. You can help by donating the following items:</p>
+    <ul>
+      <li>First aid kits</li>
+      <li>Bandages and dressings</li>
+      <li>Antiseptics and disinfectants</li>
+      <li>Medications (non-prescription)</li>
+    </ul>
+    <p>Please make sure that all medical supplies are new and within their expiration date. Fill out the form below to let us know what you plan to donate:</p>
+    <form action="submit-medical-donation.html" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="phone">Your Phone Number:</label>
+      <input type="tel" id="phone" name="phone">
+      
+      <label for="supply-type">Type of Medical Supplies to Donate:</label>
+      <select id="supply-type" name="supply-type" required>
+        <option value="">Select medical supplies type</option>
+        <option value="first-aid-kits">First aid kits</option>
+        <option value="bandages">Bandages and dressings</option>
+        <option value="antiseptics">Antiseptics and disinfectants</option>
+        <option value="medications">Medications (non-prescription)</option>
+      </select>
+      
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" required min="1">
+      
+      <label for="comments">Additional Comments (Optional):</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+      
+      <button type="submit">Submit Donation</button>
+    </form>
+  </div>
+</body>
+</html>

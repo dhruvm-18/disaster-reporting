@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetary Donations</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    section {
+      margin: 2em auto;
+      width: 80%;
+      background-color: white;
+      padding: 1.5em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #4CAF50;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin: 0.5em 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      padding: 0.5em;
+      margin: 0.5em 0;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.7em;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #333;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <!-- Donation Form -->
+  <section>
+    <h2>Donate Now</h2>
+    <form>
+      <label>
+        <input type="radio" name="amount" value="50">$50
+      </label>
+      <label>
+        <input type="radio" name="amount" value="100">$100
+      </label>
+      <label>
+        <input type="radio" name="amount" value="200">$200
+      </label>
+      <label>
+        <input type="radio" name="amount" value="custom">Other:
+        <input type="number" name="custom-amount" placeholder="Enter amount">
+      </label>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email">
+
+      <button type="submit">Donate</button>
+    </form>
+  </section>
+
+  
+</body>
+</html>

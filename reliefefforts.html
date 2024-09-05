@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relief Efforts - Donation Advisory</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      animation: slideInFromTop 1s ease-out;
+    }
+
+    @keyframes slideInFromTop {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    nav {
+      background-color: #343A40;
+      padding: 1em;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 1em;
+      position: relative;
+      animation: bounceIn 1s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #495057;
+      color: #007BFF;
+    }
+
+    .dropdown {
+      position: absolute;
+      display: none;
+      background-color: #343A40;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      animation: fadeInDropdown 0.3s ease;
+    }
+
+    @keyframes fadeInDropdown {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown a:hover {
+      background-color: #495057;
+    }
+
+    nav ul li:hover .dropdown {
+      display: block;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Relief Efforts</h1>
+    <p>Support disaster-affected areas through donations or volunteer efforts.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Donate</a>
+        <div class="dropdown">
+          <a href="food_relief.html" target="donation-iframe">Food Relief</a>
+          <a href="medical-supplies.html" target="donation-iframe">Medical Supplies</a>
+          <a href="blood-donate.html" target="donation-iframe">Blood Donations</a>
+          <a href="monetary-donations.html" target="donation-iframe">Monetary Donations</a>
+        </div>
+      </li>
+      <li><a href="volunteer.html" target="donation-iframe">Volunteer</a></li>
+    </ul>
+  </nav>
+
+  <iframe id="donation-iframe" src="donation-advisory.html" name="donation-iframe"></iframe>
+
+</body>
+</html>
